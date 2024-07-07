@@ -67,7 +67,7 @@ const App = () => {
   }
   return (
     <div style={{
-      backgroundColor: "#ddd",
+      backgroundColor: "white",
       minHeight: "100vh"
     }}>
       <div style={{
@@ -80,7 +80,7 @@ const App = () => {
           padding: "0",
           margin: "0",
           textAlign: "center"
-        }}>React Crud App</h1>
+        }}>Student Info</h1>
         <button
           onClick={handleDrawer}
           style={{
