@@ -2,16 +2,16 @@ import 'remixicon/fonts/remixicon.css'
 import React, { useState } from 'react'
 import './App.css'
 
-const model ={
+const model = {
   fullname: '',
-    class: '',
-    subject: '',
-    roll: '',
-    dob: '',
+  class: '',
+  subject: '',
+  roll: '',
+  dob: '',
 }
 
 const App = () => {
-  const[editIndex,setEditIndex]=useState(null)
+  const [editIndex, setEditIndex] = useState(null)
   const [right, setRight] = useState(-450)
   const [students, setStudents] = useState([])
   const [form, setForm] = useState(model)
@@ -38,32 +38,32 @@ const App = () => {
   }
 
 
-  const deleteStudent=(index)=>{
+  const deleteStudent = (index) => {
     const backup = [...students]
-    backup.splice(index,1)
+    backup.splice(index, 1)
     setStudents(backup)
   }
 
-  const editStudent=(index)=>{
+  const editStudent = (index) => {
     setRight(0)
     setForm(students[index])
     setEditIndex(index)
   }
 
-  const saveStudent=(e)=>{
+  const saveStudent = (e) => {
     e.preventDefault()
     const backups = [...students]
-    backups[editIndex]=form
+    backups[editIndex] = form
     setStudents(backups)
     setForm(model)
     setEditIndex(null)
     setRight(-450)
   }
 
-  const closeDrawer=()=>{
-   setRight(-450)
-   setForm(model)
-   setEditIndex(null)
+  const closeDrawer = () => {
+    setRight(-450)
+    setForm(model)
+    setEditIndex(null)
   }
   return (
     <div style={{
@@ -120,26 +120,26 @@ const App = () => {
                   <td>
                     <div>
                       <button
-                      onClick={()=>editStudent(index)} 
-                      style={{
-                        height: "32px",
-                        width: "32px",
-                        borderRadius: "4px",
-                        border: "none",
-                        background: "green",
-                        color: "white",
-                        marginRight: 12
-                      }}><i className="ri-image-edit-fill"></i></button>
-                      <button 
-                      onClick={()=>deleteStudent(index)}
-                      style={{
-                        height: "32px",
-                        width: "32px",
-                        borderRadius: "4px",
-                        border: "none",
-                        background: "red",
-                        color: "white"
-                      }}><i className="ri-chat-delete-line"></i></button>
+                        onClick={() => editStudent(index)}
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          borderRadius: "4px",
+                          border: "none",
+                          background: "green",
+                          color: "white",
+                          marginRight: 12
+                        }}><i className="ri-image-edit-fill"></i></button>
+                      <button
+                        onClick={() => deleteStudent(index)}
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          borderRadius: "4px",
+                          border: "none",
+                          background: "red",
+                          color: "white"
+                        }}><i className="ri-chat-delete-line"></i></button>
                     </div>
                   </td>
                 </tr>
@@ -172,14 +172,14 @@ const App = () => {
           }}><i className="ri-close-circle-line"></i></button>
         <h1>New Student</h1>
         <form
-          onSubmit={ editIndex === null ? createStudent :saveStudent}
+          onSubmit={editIndex === null ? createStudent : saveStudent}
           style={{
             display: "flex",
             flexDirection: "column",
             gap: "30px"
           }}>
           <input
-          spellCheck='true'
+            spellCheck='true'
             value={form.fullname}
             onChange={handleInput}
             required
@@ -233,14 +233,14 @@ const App = () => {
               border: "1px solid #ccc",
               padding: 16,
             }} />
-            {
-              editIndex===null ? <button style={{
-                border: "none",
-                background: "#8407ba",
-                color: "white",
-                fontSize: "16px",
-                padding: "14px 25px"
-              }}>SUBMIT</button>
+          {
+            editIndex === null ? <button style={{
+              border: "none",
+              background: "#8407ba",
+              color: "white",
+              fontSize: "16px",
+              padding: "14px 25px"
+            }}>SUBMIT</button>
               : <button style={{
                 border: "none",
                 background: "deeppink",
@@ -248,9 +248,9 @@ const App = () => {
                 fontSize: "16px",
                 padding: "14px 25px"
               }}>SAVE</button>
-            }
-         
-         
+          }
+
+
         </form>
       </aside>
     </div>
